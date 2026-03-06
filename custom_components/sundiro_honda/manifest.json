@@ -1,0 +1,12 @@
+{
+  "domain": "sundiro_honda",
+  "name": "Sundiro Honda",
+  "codeowners": ["@yourusername"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/793326158/sundirohonda_ha",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "0.1.0"
+}
