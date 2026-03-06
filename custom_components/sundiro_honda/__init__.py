@@ -4,6 +4,7 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import aiohttp_client  # 替换 helpers 的导入方式
 
 from .api import SundiroHondaApi
 from .const import DOMAIN
@@ -16,8 +17,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Sundiro Honda from a config entry."""
     hass.data.setdefault(DOMAIN, {})
 
-    # 初始化API客户端
-    session = hass.helpers.aiohttp_client.async_get_clientsession()
+    # 正确获取 clientsession 的方式
+    session = aiohttp_client.async_get_clientsession(hass)
     api = SundiroHondaApi(entry.data["token"], session)
 
     # 获取车辆列表
